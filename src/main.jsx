@@ -1,4 +1,4 @@
-import { StrictMode } from "react";
+import { StrictMode, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -9,6 +9,7 @@ import PostDetail from "./routes/PostDetail";
 import Contact from "./routes/Contact";
 import About from "./routes/About";
 import NotFound from "./routes/NotFound";
+import Loading from "./components/Loading";
 import { postsLoader } from "./loaders/posts.loader";
 import { postDetailsLoader } from "./loaders/postDetails.loader";
 import { aboutLoader } from "./loaders/about.loader";
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Posts />,
         loader: postsLoader,
+        HydrateFallback: Loading
       },
       {
         path: "/posts/:slug",
@@ -51,6 +53,6 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <RouterProvider router={router}/>
   </StrictMode>
 );

@@ -98,7 +98,7 @@ export default function Contact() {
                     onChange={handleChange}
                     value={formData.message}
                   ></textarea>
-                  <input type="hidden" name="from_app" value="blog_app" />
+                  <input type="hidden" name="from_app" value="blog app" />
                   <label htmlFor="message">Message</label>
                 </div>
                 <br />

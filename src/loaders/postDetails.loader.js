@@ -23,7 +23,7 @@ export async function postDetailsLoader({ params }){
     image: postImg,
     headerType: "post-heading",
     subHeadingTag: "h2",
-    author: post.author,
+    author: post.author.username,
     created_at: post.created_at
   }
 }

@@ -1,7 +1,6 @@
 export async function contactAction({ request }) {
   const formData = await request.formData();
   const postData = Object.fromEntries(formData); // {body: '...', author: '...'}
-  console.log(JSON.stringify(postData));
 
   const apiUrl = import.meta.env.VITE_API_URL;
 

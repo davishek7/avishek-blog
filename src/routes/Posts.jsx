@@ -6,7 +6,6 @@ import { useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function Posts() {
-
   const { initialPosts, nextOffset, total } = useLoaderData();
   const navigation = useNavigation();
   const isLoading = navigation.state === "loading";
@@ -34,28 +33,32 @@ export default function Posts() {
         <div className="container px-4 px-lg-5">
           <div className="row gx-4 gx-lg-5 justify-content-center">
             <div className="col-md-10 col-lg-8 col-xl-7">
-              <InfiniteScroll
-                dataLength={posts.length}
-                next={fetchMorePosts}
-                hasMore={posts.length < total}
-                loader={<h4>Loading...</h4>}
-                endMessage={
-                  <p style={{ textAlign: "center" }}>You’ve seen it all!</p>
-                }
-              >
-                {posts &&
-                  posts.length > 0 &&
-                  posts.map((post) => (
-                    <Post
-                      key={post.id}
-                      title={post.title}
-                      slug={post.slug}
-                      subtitle={post.subtitle}
-                      author={post.author}
-                      created_at={post.created_at}
-                    />
-                  ))}
-              </InfiniteScroll>
+              {initialPosts.length == 0 ? (
+                <p style={{ textAlign: "center" }}>No posts found!</p>
+              ) : (
+                <InfiniteScroll
+                  dataLength={posts.length}
+                  next={fetchMorePosts}
+                  hasMore={posts.length < total}
+                  loader={<h4>Loading...</h4>}
+                  endMessage={
+                    <p style={{ textAlign: "center" }}>You’ve seen it all!</p>
+                  }
+                >
+                  {posts &&
+                    posts.length > 0 &&
+                    posts.map((post) => (
+                      <Post
+                        key={post.id}
+                        title={post.title}
+                        slug={post.slug}
+                        subtitle={post.subtitle}
+                        author={post.author.username}
+                        created_at={post.created_at}
+                      />
+                    ))}
+                </InfiniteScroll>
+              )}
             </div>
           </div>
         </div>
