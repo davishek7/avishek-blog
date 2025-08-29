@@ -5,11 +5,11 @@ export default function Loading() {
     <>
       <div className="d-flex justify-content-center">
         <div
-          class="spinner-border m-5"
+          className="spinner-border m-5"
           style={{width: "3rem", height: "3rem"}}
           role="status"
         >
-          <span class="visually-hidden">Loading...</span>
+          <span className="visually-hidden">Loading...</span>
         </div>
       </div>
     </>

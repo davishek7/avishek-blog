@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { format } from "date-fns";
 
 export default function Post({ title, slug, subtitle, author, created_at }) {
 
@@ -13,7 +12,7 @@ export default function Post({ title, slug, subtitle, author, created_at }) {
         <p className="post-meta">
           Posted by &nbsp;
           <a href="#!">{author}</a>
-          &nbsp; on {format(new Date(created_at), "MMMM d, yyyy")}
+          &nbsp; on {created_at}
         </p>
       </div>
       <hr className="my-4" />

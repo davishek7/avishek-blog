@@ -1,5 +1,4 @@
 import { useLoaderData, Link } from "react-router-dom";
-import { format } from "date-fns";
 
 export default function Header() {
 
@@ -28,7 +27,7 @@ export default function Header() {
                   <span className="meta">
                     Posted by &nbsp;
                     <Link to="/">{author}</Link>
-                    &nbsp; on {format(new Date(created_at), "MMMM d, yyyy")}
+                    &nbsp; on {created_at}
                   </span>
                 )}
               </div>
